@@ -38,6 +38,10 @@ licenses: .bin/licenses node_modules  # checks open-source licenses
 test: install build-examples .bin/ory
 	./src/scripts/test.sh
 
+.PHONY: test-sdk
+test-sdk:
+	./src/scripts/test-sdk.sh
+
 .bin/licenses: Makefile
 	curl https://raw.githubusercontent.com/ory/ci/master/licenses/install | sh
 

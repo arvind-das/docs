@@ -8,8 +8,6 @@ import (
 	"github.com/ory/client-go"
 )
 
-var ory *client.APIClient
-
 func init() {
 	cfg := client.NewConfiguration()
 	cfg.Servers = client.ServerConfigurations{

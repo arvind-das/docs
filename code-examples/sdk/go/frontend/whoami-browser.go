@@ -13,9 +13,9 @@ func whoami() {
 	if proxyPort == "" {
 		proxyPort = "4000"
 	}
-	configuration := ory.NewConfiguration()
-	configuration.Servers = ory.ServerConfigurations{{URL: fmt.Sprintf("http://localhost:%s/.ory", proxyPort)}}
-	apiClient := ory.NewAPIClient(configuration)
+	cfg := ory.NewConfiguration()
+	cfg.Servers = ory.ServerConfigurations{{URL: fmt.Sprintf("http://localhost:%s/.ory", proxyPort)}}
+	apiClient := ory.NewAPIClient(cfg)
 	cookie := "ory_session_playground=<your-session-cookie-here>"
 	resp, r, err := apiClient.FrontendApi.ToSession(context.Background()).Cookie(cookie).Execute()
 	if err != nil {

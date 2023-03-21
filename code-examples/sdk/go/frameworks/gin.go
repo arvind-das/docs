@@ -14,14 +14,14 @@ type kratosMiddleware struct {
 }
 
 func NewMiddleware() *kratosMiddleware {
-	configuration := ory.NewConfiguration()
-	configuration.Servers = []ory.ServerConfiguration{
+	cfg := ory.NewConfiguration()
+	cfg.Servers = []ory.ServerConfiguration{
 		{
 			URL: "https://playground.projects.oryapis.com", // Ory Network Project URL
 		},
 	}
 	return &kratosMiddleware{
-		ory: ory.NewAPIClient(configuration),
+		ory: ory.NewAPIClient(cfg),
 	}
 }
 func (k *kratosMiddleware) Session() gin.HandlerFunc {

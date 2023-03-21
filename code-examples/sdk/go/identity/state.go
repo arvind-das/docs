@@ -8,10 +8,9 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/ory/client-go"
+	client "github.com/ory/client-go"
 )
 
-var ory *client.APIClient
 var authed = context.WithValue(context.Background(), client.ContextAccessToken, os.Getenv("ORY_API_KEY"))
 
 func init() {
